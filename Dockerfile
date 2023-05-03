@@ -13,10 +13,12 @@ RUN apt-get update && \
     apt-get install -qy maven && \
 # Cleanup old packages
     apt-get -qy autoremove && \
+# Install adduser package
+    apt-get install -qy adduser && \
 # Add user jenkins to the image
     adduser --quiet jenkins && \
 # Set password for the jenkins user (you may want to alter this).
-    echo "jenkins:password" | jenkins && \
+    echo "jenkins:password" | chpasswd && \
     mkdir /home/jenkins/.m2
 
 # Copy authorized keys
