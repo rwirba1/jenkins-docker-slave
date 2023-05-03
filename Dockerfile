@@ -16,7 +16,7 @@ RUN apt-get update && \
 # Add user jenkins to the image
     adduser --quiet jenkins && \
 # Set password for the jenkins user (you may want to alter this).
-    echo "jenkins:password" | chpasswd && \
+    echo "jenkins:password" | jenkins && \
     mkdir /home/jenkins/.m2
 
 # Copy authorized keys
